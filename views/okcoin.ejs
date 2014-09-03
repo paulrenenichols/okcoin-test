@@ -9,6 +9,7 @@
 
         var subscribed = false;
 
+        /*
         $('#toggle').click(function () {
 
             if (subscribed) {
@@ -27,6 +28,11 @@
 
             subscribed = !subscribed;
         });
+        */
+
+        io.socket.get('/okCoin/subscribe', function (data, jwres){
+            console.log(JSON.stringify(data, null, 2));
+        }); 
 
    
         io.socket.on('message', function (data){
@@ -43,11 +49,14 @@
         <h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>
     </div>
     <div class="main container clearfix">
-        <strong>Real Time Counter </strong><span id="counter"></span>
+        <strong>Okcoin Data (Real Time) </strong>
+        <div id="counter"></div>
         
     </div>
+    <!--
     <div class="container">
         <button name='toggle' id='toggle'>Subscribe</button>
     </div>
+    -->
 
 </div>
